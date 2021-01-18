@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:url_launcher/url_launcher.dart';
-import 'dart:html';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:webview_flutter/webview_flutter.dart';
@@ -57,7 +56,7 @@ class _ApiPageState extends State<ApiPage> {
                     if (snapshot.data.articles[index].urlToImage != null &&
                         snapshot.data.articles[index].title != null) {
                       return Container(
-                          margin: EdgeInsets.only(bottom: 24),
+                          margin: EdgeInsets.fromLTRB(0, 10, 0, 20),
                           width: MediaQuery.of(context).size.width,
                           child: Container(
                               padding: EdgeInsets.symmetric(horizontal: 16),
@@ -74,7 +73,7 @@ class _ApiPageState extends State<ApiPage> {
                                       borderRadius: BorderRadius.circular(6),
                                       child: InkWell(
                                         onTap: (){
-                                          new WebView(
+                                          WebView(
                                               initialUrl: snapshot.data.articles[index].url,
                                             );
                                         },
