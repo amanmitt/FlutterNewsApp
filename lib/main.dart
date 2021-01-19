@@ -33,13 +33,14 @@ class ApiPage extends StatefulWidget {
 
 class _ApiPageState extends State<ApiPage> {
   Future<Req> futureReq;
+  WebViewController _controller;
 
   @override
   void initState() {
     super.initState();
     futureReq = fetchReq();
 
-  //  WebView.platform = SurfaceAndroidWebView();
+    //  WebView.platform = SurfaceAndroidWebView();
   }
 
   @override
@@ -72,15 +73,24 @@ class _ApiPageState extends State<ApiPage> {
                                   ClipRRect(
                                       borderRadius: BorderRadius.circular(6),
                                       child: InkWell(
-                                        onTap: (){
-                                          WebView(
-                                              initialUrl: snapshot.data.articles[index].url,
-                                            );
+                                        onTap: () {
+                                          // print(snapshot.data.articles[index].url);
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) => WebView(
+                                                        initialUrl: snapshot
+                                                            .data
+                                                            .articles[index]
+                                                            .url,
+                                                      )));
                                         },
                                         child: Image.network(
-                                          snapshot.data.articles[index].urlToImage,
+                                          snapshot
+                                              .data.articles[index].urlToImage,
                                           height: 200,
-                                          width: MediaQuery.of(context).size.width,
+                                          width:
+                                              MediaQuery.of(context).size.width,
                                           fit: BoxFit.cover,
                                         ),
                                       )),
