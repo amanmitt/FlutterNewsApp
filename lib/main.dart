@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:flutter/foundation.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'model/Req.dart';
 
@@ -73,6 +74,7 @@ class _ApiPageState extends State<ApiPage> {
                                       borderRadius: BorderRadius.circular(6),
                                       child: InkWell(
                                         onTap: () {
+                                          debugPrint('movieTitle');
                                           // print(snapshot.data.articles[index].url);
                                           Navigator.push(
                                               context,
