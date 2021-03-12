@@ -16,6 +16,7 @@ void main() {
     home: ApiPage(),
   ));
 }
+
 var key = 'acdcde000d784b748d1ebe854792e79a';
 
 Future<Req> fetchReq() async {
